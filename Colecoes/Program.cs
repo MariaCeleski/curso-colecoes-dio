@@ -6,7 +6,7 @@ namespace Colecoes
 {
     class Program
     {
-        static void Main(string[] args)
+        static async void Main(string[] args)
         {
             // ******** - Operações com Array - ********
             int[] arrayInteiros = new int[3];
@@ -45,7 +45,7 @@ namespace Colecoes
             {
                 for (int j = 0; j < matriz.GetLength(1); j++)
                 {
-                    System.Console.WriteLine(matriz[i, j]);
+                    System.Console.WriteLine(matriz[i, j]);//imprime 8,8,10,20,50,100,90,200
                 }
             }
 
@@ -55,19 +55,19 @@ namespace Colecoes
             int[] arrayCopia = new int[10];
 
             System.Console.WriteLine("Array original:");
-            op.ImprimirArray(array);
+            op.ImprimirArray(array);//imprime 6,3,8,1,9
 
             op.OrdenarBubbleSort(ref array);
             op.Ordenar(ref array);
 
             System.Console.WriteLine("Array ordenado:");
-            op.ImprimirArray(array);
+            op.ImprimirArray(array);//imprime 1,3,6,8,9
 
-            System.Console.WriteLine("Array antes da cópia:");
+            System.Console.WriteLine("Array antes da cópia:");// array antes da cópia sem valor imprime 0,0,0,0,0,0,0,0,0,0
             op.ImprimirArray(arrayCopia);
 
             op.Copiar(ref array, ref arrayCopia);
-            System.Console.WriteLine("Array após a cópia:");
+            System.Console.WriteLine("Array após a cópia:");// // array depois da cópia imprime 6,3,8,1,9,0,0,0,0,0
             op.ImprimirArray(arrayCopia);
 
             // Conversão de um array de inteiros para um array de string, com os mesmos elementos
@@ -82,7 +82,7 @@ namespace Colecoes
 
             // Procurando um índice com base no elemento
             int valorProcurado = 8;
-            int indice = op.ObterIndice(array, valorProcurado);
+            int indice = op.ObterIndice(array, valorProcurado);//linha 56 operações array
 
             // Caso retornar -1, significa que o elemento não existe no array
             if (indice > -1)
@@ -133,7 +133,26 @@ namespace Colecoes
             }
 
             // ******** - Operações com lista - ********
-            OperacoesLista opLista = new OperacoesLista();
+            
+            // List<string> estados = new List<string>();
+            // estados.Add("SP");
+            // estados.Add("MG");
+            // estados.Add("BA");
+
+            // System.Console.WriteLine(($"Quantidade de elementos na lista: {estados.Count}"));
+
+            // foreach(var item in estados)
+            // {
+            //     System.Console.WriteLine(item);
+            // }
+
+            // for (int i = 0; i < estados.Count; i++)
+            // {
+            //     System.Console.WriteLine($"Índice {i}, Valor:{estados.Count[i]}");
+            // }
+
+
+            OperacoesLista opLista = new OperacoesLista();//classe separada
             List<string> estados = new List<string> { "SP", "MG", "BA" };
             string[] estadosArray = new string[2] { "SC", "MT" };
 
@@ -148,6 +167,8 @@ namespace Colecoes
             estados.Insert(1, "RJ");
 
             opLista.ImprimirListaString(estados);
+
+
 
             // ******** - Operações com Fila - ********
             Queue<string> fila = new Queue<string>();
